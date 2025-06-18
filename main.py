@@ -89,8 +89,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             num = phonenumbers.parse(text, None)
             country = geocoder.description_for_number(num, "en")
             operator = carrier.name_for_number(num, "en")
-            await update.message.reply_text(f"📞 Страна: {country}
-Оператор: {operator}")
+            await update.message.reply_text(f"📞 Страна: {country}\n📡 Оператор: {operator}")
         elif state == "awaiting_ip":
             url = f"https://ipinfo.io/{text}?token={IPINFO_TOKEN}"
             async with aiohttp.ClientSession() as session:
