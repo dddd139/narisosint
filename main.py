@@ -74,12 +74,11 @@ async def cmd_searchcsv(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def cmd_listcsv(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         files = [f for f in os.listdir(CSV_FOLDER) if f.endswith(".csv")]
-        msg = "📁 CSV-файлы:
-" + "
-".join(files) if files else "❌ Нет CSV-файлов."
+        msg = "📁 CSV-файлы:\n" + "\n".join(files) if files else "❌ Нет CSV-файлов."
     except FileNotFoundError:
         msg = "❌ Папка csv_data не найдена."
     await update.message.reply_text(msg)
+
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
