@@ -23,9 +23,6 @@ HUNTER_API_KEY = os.getenv("HUNTER_API_KEY", "")
 HIBP_API_KEY = os.getenv("HIBP_API_KEY", "")
 CSV_FOLDER = "csv_data"
 
-if not TOKEN:
-    raise RuntimeError("❌ Укажите переменную окружения TOKEN")
-
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 user_states: dict[int, str] = {}
