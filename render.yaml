@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: osint-naris-bot
+    env: python
+    plan: free
+    region: frankfurt
+    buildCommand: ""
+    startCommand: python main.py
+    envVars:
+      - key: TOKEN
+        fromSecret: tg-token
+      - key: IPINFO_TOKEN
+        fromSecret: ipinfo-token
+      - key: HUNTER_API_KEY
+        fromSecret: hunter-token
+      - key: HIBP_API_KEY
+        fromSecret: hibp-token
